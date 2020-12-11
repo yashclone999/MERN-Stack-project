@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\models",
+    "\\public",
+    "\\public\\JSON_data",
+    "\\routes"
+  ],
+  "SelectedNode": "\\public\\JSON_data\\db.json",
+  "PreviewInSolutionExplorer": false
+}
