@@ -12,9 +12,10 @@ exports.local = passport.use( new LocalStrategy( User.authenticate() ) );
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//not using sessions but token:
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//SHIT for implementing token:
+//for implementing token:
 
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
