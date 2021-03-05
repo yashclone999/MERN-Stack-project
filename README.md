@@ -1,7 +1,68 @@
 # react-project
 
 A full stack application developed using React.js Node.js Express and MongoDB.
-This is a multipage website, developed with a theme of a restaurant website and supports the features like
-User sign up and user login, add and drop menu items and supports user specific collections and 
-user feedback and contact.
+Supports the features like: 
+User sign up and user login, add and CRUD operations using MongoDB
+---------------------------------------------------------------------------------------------------------
+Deploy on AWS & MongoDB Atlas
+
+https://jasonwatmore.com/post/2019/11/18/react-nodejs-on-aws-how-to-deploy-a-mern-stack-app-to-amazon-ec2
+
+Changes in project:
+in react make base url " /api/
+in server run at port 5000
+in server connect with mongodb atlas
+
+In ec2: 
+
+sudo apt-get update
+sudo apt-get install -y nodejs
+sudo apt-get install -y nginx
+sudo ufw allow OpenSSH
+sudo ufw allow 'Nginx Full'
+sudo ufw --force enable
+
+
+folder structure:
+ubuntu
+	--> client
+		--> deploy
+			--> all build files from react
+	--> server
+		--> ALL FILES OF NODE
+
+...run npm install for node modules
+
+
+Nginx server will redirect every exernal request to port 80, and every 
+request from react will have base url as /api/
+this /api/ will be redirected internally nginx to port 5000, where node
+server sits
+
+
+sudo rm /etc/nginx/sites-available/default
+sudo vi /etc/nginx/sites-available/default
+
+cut all and paste following:
+
+server {
+  listen 80 default_server;
+  server_name _;
+
+  # react app & front-end files
+  location / {
+    root   /home/ubuntu/client/deploy;
+    index  index.html index.htm;
+    try_files $uri /index.html;
+  }
+
+  # node api reverse proxy
+  location /api/ {
+    proxy_pass http://localhost:5000/;
+  }
+}
+
+sudo systemctl restart nginx
+
+...WILL DO!
 
