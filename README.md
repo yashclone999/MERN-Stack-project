@@ -1,4 +1,4 @@
-# react-project
+# MERN Stack-project
 
 A full stack application developed using React.js Node.js Express and MongoDB.
 Supports the features like: 
