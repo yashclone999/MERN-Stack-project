@@ -2,9 +2,9 @@
 
 A full stack application developed using React.js Node.js Express and MongoDB.
 Supports the features like: 
-User sign up and user login, add and CRUD operations using MongoDB
+User sign up and user login, and CRUD operations on MongoDB
 ---------------------------------------------------------------------------------------------------------
-Deploy on AWS & MongoDB Atlas
+To Deploy on AWS & MongoDB Atlas
 
 https://jasonwatmore.com/post/2019/11/18/react-nodejs-on-aws-how-to-deploy-a-mern-stack-app-to-amazon-ec2
 
@@ -64,5 +64,4 @@ server {
 
 sudo systemctl restart nginx
 
-...WILL DO!
 
