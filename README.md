@@ -15,20 +15,20 @@ in server run at port 5000 <br />
 in server connect with mongodb atlas <br />
 
 In ec2:  <br />
-
-sudo apt-get update <br />
-sudo apt-get install -y nodejs <br />
-sudo apt-get install -y nginx <br />
-sudo ufw allow OpenSSH <br />
-sudo ufw allow 'Nginx Full' <br />
-sudo ufw --force enable <br />
-
+```
+sudo apt-get update 
+sudo apt-get install -y nodejs 
+sudo apt-get install -y nginx 
+sudo ufw allow OpenSSH 
+sudo ufw allow 'Nginx Full'
+sudo ufw --force enable 
+```
 
 folder structure: <br />
 ubuntu/client/deploy/{react_build_file} <br />
 ubuntu/server/{server_files} <br />
 
-...run npm install for node modules <br />
+...run ```npm install``` for node modules <br />
 
 
 Nginx server will redirect every exernal request to port 80, and every  
@@ -36,29 +36,28 @@ request from react will have base url as /api/ <br />
 this /api/ will be redirected internally nginx to port 5000, where node 
 server sits <br />
 
-
-sudo rm /etc/nginx/sites-available/default <br />
-sudo vi /etc/nginx/sites-available/default <br />
-
+```
+sudo rm /etc/nginx/sites-available/default
+sudo vi /etc/nginx/sites-available/default
+```
 cut all and paste following: <br />
-
-server {<br />
-  listen 80 default_server;<br />
-  server_name _;<br />
-
-  
-  location / {<br />
-    root   /home/ubuntu/client/deploy;<br />
-    index  index.html index.htm;<br />
-    try_files $uri /index.html;<br />
-  }<br />
+```
+server {
+  listen 80 default_server;
+  server_name _;
 
   
-  location /api/ {<br />
-    proxy_pass http://localhost:5000/;<br />
-  }<br />
-}<br />
-
+  location / {
+    root   /home/ubuntu/client/deploy;
+    index  index.html index.htm;
+    try_files $uri /index.html;
+  }
+  
+  location /api/ {
+    proxy_pass http://localhost:5000/;
+  }
+}
+```
 sudo systemctl restart nginx
 
 
