@@ -9,6 +9,7 @@ To Deploy on AWS & MongoDB Atlas
 https://jasonwatmore.com/post/2019/11/18/react-nodejs-on-aws-how-to-deploy-a-mern-stack-app-to-amazon-ec2
 
 Changes in project:
+
 in react make base url " /api/
 in server run at port 5000
 in server connect with mongodb atlas
@@ -24,12 +25,8 @@ sudo ufw --force enable
 
 
 folder structure:
-ubuntu
-	--> client
-		--> deploy
-			--> all build files from react
-	--> server
-		--> ALL FILES OF NODE
+ubuntu/client/deploy/{react_build_file}
+ubuntu/server/{server_files}
 
 ...run npm install for node modules
 
